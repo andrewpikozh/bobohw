@@ -2,7 +2,6 @@ package com.example.nasademo.service;
 
 import com.example.nasademo.client.NasaClient;
 import com.example.nasademo.db.Camera;
-import com.example.nasademo.db.Picture;
 import com.example.nasademo.model.Sol;
 import com.example.nasademo.repository.CameraRepository;
 import com.example.nasademo.repository.PictureRepository;
@@ -25,9 +24,10 @@ public class NasaService {
         nasaPhotos.getPhotoList()
                 .forEach(photo -> {
                     var camera = photo.getCamera();
-                    Camera entity = cameraRepository.save(new Camera(camera.getId(), photo.getId(), camera.getName(), photo.getEarthDate()));
-                    pictureRepository.save(new Picture(photo.getId(), photo.getImgSrc(), entity, photo.getEarthDate()));
+                    cameraRepository.save(new Camera(camera.getId(), photo.getId(), camera.getName(), photo.getEarthDate()));
+                    //TODO: add ability to save pictures
+//                    Optional<Camera> cameraByNasaId = cameraRepository.findByNasaId(photo.getId());
+//                    pictureRepository.save(new Picture(photo.getId(), photo.getImgSrc(), cameraByNasaId.get(), photo.getEarthDate()));
                 });
-
     }
 }

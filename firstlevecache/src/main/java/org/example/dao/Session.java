@@ -1,7 +1,6 @@
-package org.example.repository;
+package org.example.dao;
 
 import lombok.RequiredArgsConstructor;
-import org.example.EntityKey;
 import org.example.exception.OrmException;
 import org.example.utils.ReflectionUtils;
 

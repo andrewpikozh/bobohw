@@ -1,6 +1,6 @@
 package org.example;
 
-import org.example.repository.Session;
+import org.example.dao.Session;
 import org.postgresql.ds.PGSimpleDataSource;
 
 import javax.sql.DataSource;

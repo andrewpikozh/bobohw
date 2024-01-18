@@ -9,8 +9,11 @@ public class Main {
     public static void main(String[] args) {
         var dataSource = initDB();
         var session = new Session(dataSource, Person.class);
-        Person person = session.find(Person.class, 1L).get();
-        System.out.println(person);
+        Person person1 = session.find(Person.class, 1L).get();
+        System.out.println(person1);
+        Person person2 = session.find(Person.class, 1L).get();
+        System.out.println(person2);
+        System.out.println(person1 == person2);
     }
 
     public static DataSource initDB() {
